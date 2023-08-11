@@ -1,0 +1,57 @@
+
+SELECT * FROM Productos WHERE categoria LIKE 'Ropa'
+
+SELECT nombre FROM Productos WHERE precios > 30
+
+SELECT COUNT(*) FROM Productos
+
+SELECT COUNT(*) FROM Productos WHERE categoria='accesorios'
+
+SELECT AVG(Precios) FROM Productos
+
+SELECT nombre,categoria,precio FROM Productos ORDER BY precio DESC
+
+SELECT * FROM Productos WHERE precios BETWEEN 20 AND 50
+
+SELECT * FROM Productos WHERE precios > 30 AND Categoria LIKE 'ropa'
+
+SELECT nombres, precios WHERE nombre LIKE '%Zapatos%'
+
+INSERT INTO libros (libro_id, titulo, autor_id, precio, stock)
+VALUES (11, "Amanecer rebelde", 1, 20, 2);
+
+INSERT INTO autores (autor_id, nombre)
+VALUES (6, "James Luceno");
+
+INSERT INTO clientes (cliente_id, nombre)
+VALUES (4, "Beriel Arris", "beriel@Arris.es");
+
+SELECT * FROM libros WHERE autor_id LIKE 2;
+
+ALTER TABLE libros ADD FOREIGN KEY (autor_id) REFERENCES autores(autor_id);
+
+1. SELECT Libros.libro_id, Libros.titulo, Autores.nombre
+FROM Autores
+INNER JOIN Libros ON Autores.autor_id=Libros.autor_id;
+
+2. SELECT titulo, precio FROM Libros WHERE precio > 20;
+
+3. UPDATE Libros SET stock = 8 WHERE libro_id = 6;
+UPDATE Libros SET stock = (Libros.stock - 5) WHERE libro_id = 6;
+
+4. INSERT INTO autores (autor_id,nombre) VALUES (8,"Kevin J. Anderson");
+
+5. ALTER TABLE libros ADD FOREIGN KEY (autor_id) REFERENCES autores(autor_id);
+
+6. ALTER TABLE Clientes ADD libro_id int(3);
+
+   ALTER TABLE Clientes ADD FOREIGN KEY (libro_id) REFERENCES Libros(libro_id);
+
+   UPDATE Clientes SET libro_id = 1 WHERE cliente_id LIKE 1;
+
+   SELECT Clientes.nombre, Libros.titulo
+FROM Libros
+INNER JOIN Clientes ON Libros.libro_id=Clientes.libro_id;
+
+
+
